@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Luis Ramírez, Mechanical Engineering</title>
+<meta name="description" content="Mechanical engineering student at NJIT, graduating May 2027. CAD, simulation, and engineering drawings, with the full reports behind every project.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#ffffff; --ink:#000000; --ink-2:#4a4a4a; --hair:#cccccc; --plate:#ffffff;
+  --serif:"Newsreader","Times New Roman",Times,serif;
+  --sans:"Libre Franklin","Helvetica Neue",Arial,sans-serif;
+  --u:8px; --max:1180px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#000;--ink:#f4f4f4;--ink-2:#b8b8b8;--hair:#444;--plate:#161616}}
+:root[data-theme="dark"]{--paper:#000;--ink:#f4f4f4;--ink-2:#b8b8b8;--hair:#444;--plate:#161616}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.125rem/1.6 var(--serif);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--paper);padding:8px 12px;font-family:var(--sans);z-index:10}
+.skip:focus{left:8px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 calc(var(--u)*3)}
+.sans{font-family:var(--sans)}
+
+/* nav */
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:calc(var(--u)*2) 0;font:500 .875rem/1 var(--sans);flex-wrap:wrap}
+.top .home{text-decoration:none;font-weight:600}
+.top nav{display:flex;gap:calc(var(--u)*2.5);flex-wrap:wrap;align-items:center}
+.top nav a{text-decoration:none;padding:12px 0}
+.top nav a:hover{text-decoration:underline}
+.top nav .cv{border:1px solid var(--ink);padding:11px 14px}
+.top nav .cv:hover{background:var(--ink);color:var(--paper);text-decoration:none}
+
+/* masthead */
+.mast{border-top:1px solid var(--ink);padding-top:calc(var(--u)*3);text-align:center}
+.mast h1{font:500 clamp(3.4rem,12.5vw,9.5rem)/.92 var(--serif);font-variation-settings:"opsz" 72;letter-spacing:-.025em;margin:0}
+.dateline{display:flex;justify-content:space-between;gap:16px;margin-top:calc(var(--u)*2.5);padding:10px 0;border-top:1px solid var(--ink);border-bottom:3px double var(--ink);font:400 .875rem/1.3 var(--sans);color:var(--ink-2);text-align:left}
+.dateline span:last-child{text-align:right}
+
+/* hero body */
+.lede{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:calc(var(--u)*6);align-items:center;padding:calc(var(--u)*6) 0 calc(var(--u)*8)}
+.portrait{width:100%;max-width:300px;height:auto;aspect-ratio:1;object-fit:cover;border-radius:50%}
+.lede p{font-size:clamp(1.3rem,2.4vw,1.85rem);line-height:1.4;margin:0 0 calc(var(--u)*3);max-width:34ch}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{font:500 .9375rem/1 var(--sans);text-decoration:none;border:1px solid var(--ink);padding:14px 18px;min-height:44px;display:inline-flex;align-items:center}
+.btn.solid{background:var(--ink);color:var(--paper)}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn.solid:hover{background:transparent;color:var(--ink)}
+
+/* sections */
+section{padding:calc(var(--u)*8) 0;border-top:1px solid var(--ink)}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:24px;margin-bottom:calc(var(--u)*4);flex-wrap:wrap}
+h2{font:500 clamp(2rem,4.2vw,3rem)/1.05 var(--serif);letter-spacing:-.015em;margin:0}
+.sec-head p{margin:0;color:var(--ink-2);font:400 1rem/1.5 var(--sans);max-width:46ch}
+
+/* drawing sheets */
+.sheets{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:calc(var(--u)*3)}
+.sheet{border:1.5px solid var(--ink);display:flex;flex-direction:column;background:var(--paper)}
+.sheet.lead{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr)}
+.plate{background:var(--plate);position:relative;aspect-ratio:4/3;border-bottom:1px solid var(--ink);overflow:hidden}
+.plate img{position:absolute;inset:calc(var(--u)*2);width:calc(100% - var(--u)*4);height:calc(100% - var(--u)*4);object-fit:contain;transition:transform .45s cubic-bezier(.34,1.56,.64,1)}
+.sheet.lead .plate{aspect-ratio:auto;border-bottom:0;border-right:1px solid var(--ink);padding:calc(var(--u)*2);display:flex;align-items:center}
+.sheet.lead .plate img{position:static;width:100%;height:auto}
+@media (hover:hover) and (pointer:fine){.sheet:hover .plate img{transform:scale(1.02)}}
+.body{padding:calc(var(--u)*2.5) calc(var(--u)*2.5) calc(var(--u)*2);flex:1;display:flex;flex-direction:column}
+.body h3{font:500 1.5rem/1.15 var(--serif);margin:0 0 calc(var(--u)*1.25)}
+.sheet.lead .body h3{font-size:clamp(1.6rem,2.6vw,2.1rem)}
+.body p{margin:0 0 calc(var(--u)*1.75);font-size:1.0625rem;line-height:1.5}
+.body ul{margin:0 0 calc(var(--u)*2);padding:0;list-style:none;font:400 .9375rem/1.45 var(--sans)}
+.body li{padding:7px 0;border-top:1px solid var(--hair)}
+.body li:last-child{border-bottom:1px solid var(--hair)}
+.links{margin-top:auto;display:flex;gap:18px;flex-wrap:wrap;font:500 .9375rem/1 var(--sans);padding-bottom:calc(var(--u)*2)}
+.links a{padding:12px 0}
+/* title block */
+.tb{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));border-top:1px solid var(--ink);font-family:var(--sans)}
+.tb div{padding:8px 10px;border-right:1px solid var(--ink);min-width:0}
+.tb div:last-child{border-right:0}
+.tb small{display:block;font-size:.6875rem;color:var(--ink-2);line-height:1.2;margin-bottom:3px}
+.tb b{display:block;font-weight:500;font-size:.8125rem;line-height:1.25}
+.sheet.lead .tb{grid-column:1/-1}
+
+/* report index */
+.index{columns:2;column-gap:calc(var(--u)*6)}
+.group{break-inside:avoid;margin-bottom:calc(var(--u)*4)}
+.group h3{font:600 .9375rem/1.3 var(--sans);margin:0 0 4px;padding-bottom:8px;border-bottom:2px solid var(--ink)}
+.group h3 span{font-weight:400;color:var(--ink-2)}
+.row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;padding:12px 0;border-bottom:1px solid var(--hair)}
+.row strong{font:500 1.0625rem/1.3 var(--serif)}
+.row span{grid-column:1;font:400 .875rem/1.45 var(--sans);color:var(--ink-2)}
+.row a,.row em{grid-row:1/3;grid-column:2;align-self:center;font:500 .8125rem/1 var(--sans);font-style:normal;padding:12px 0}
+.row em{color:var(--ink-2)}
+
+/* experience + skills */
+.two{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:calc(var(--u)*8)}
+.job{padding:calc(var(--u)*2) 0;border-bottom:1px solid var(--hair)}
+.job:first-of-type{border-top:1px solid var(--hair)}
+.job header{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.job h3{font:500 1.25rem/1.25 var(--serif);margin:0}
+.job .when{font:400 .875rem/1.6 var(--sans);color:var(--ink-2)}
+.job .where{font:500 .875rem/1.4 var(--sans);margin:2px 0 6px}
+.job p{margin:0;font-size:1rem;line-height:1.5}
+.skills{list-style:none;margin:0;padding:0}
+.skills li{padding:12px 0;border-bottom:1px solid var(--hair);font-size:1.0625rem}
+.skills li:first-child{border-top:1px solid var(--hair)}
+.skills li small{display:block;font:400 .8125rem/1.4 var(--sans);color:var(--ink-2)}
+h2.sm{font-size:1.75rem;margin-bottom:calc(var(--u)*2)}
+
+/* contact */
+.contact{text-align:center;padding:calc(var(--u)*12) 0 calc(var(--u)*8)}
+.contact h2{font-size:clamp(2.4rem,6vw,4.5rem);margin-bottom:calc(var(--u)*2)}
+.contact p{font-size:1.25rem;line-height:1.45;max-width:34ch;margin:0 auto calc(var(--u)*3);color:var(--ink-2)}
+.contact .mail{font:500 clamp(1.4rem,4.6vw,3rem)/1.1 var(--serif);word-break:break-word}
+.contact .actions{justify-content:center;margin-top:calc(var(--u)*4)}
+footer{border-top:3px double var(--ink);padding:calc(var(--u)*2.5) 0 calc(var(--u)*4);font:400 .875rem/1.5 var(--sans);color:var(--ink-2);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* one moment: masthead settles in on load */
+@media (prefers-reduced-motion:no-preference){
+  .js .mast h1{animation:set .9s var(--ease) both}
+  .js .dateline{animation:rule .9s var(--ease) .15s both}
+  @keyframes set{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  @keyframes rule{from{clip-path:inset(0 50% 0 50%)}to{clip-path:inset(0 0 0 0)}}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.plate img{transition:none}}
+
+/* responsive */
+@media (max-width:980px){
+  .sheets{grid-template-columns:1fr 1fr}
+  .sheet.lead{grid-template-columns:1fr}
+  .sheet.lead .plate{border-right:0;border-bottom:1px solid var(--ink)}
+  .two{grid-template-columns:1fr;gap:calc(var(--u)*6)}
+}
+@media (max-width:700px){
+  .wrap{padding:0 calc(var(--u)*2)}
+  .lede{grid-template-columns:1fr;gap:calc(var(--u)*3);padding:calc(var(--u)*4) 0 calc(var(--u)*6)}
+  .portrait{max-width:180px}
+  .sheets{grid-template-columns:1fr}
+  .index{columns:1}
+  .dateline{font-size:.8125rem}
+  .top .home{display:none}
+  .top{padding:4px 0}
+  .top nav{width:100%;justify-content:space-between;gap:8px;font-size:.8125rem}
+  .top nav .cv{padding:11px 10px}
+  .mast h1{font-size:clamp(3rem,15vw,5rem)}
+  section{padding:calc(var(--u)*6) 0}
+}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+  <div class="top">
+    <a class="home" href="#top">L. Ramírez</a>
+    <nav aria-label="Main">
+      <a href="#work">Work</a>
+      <a href="#reports">Reports</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+      <a class="cv" href="resume/luis-ramirez-resume.pdf">Résumé</a>
+    </nav>
+  </div>
+
+  <header class="mast" id="top">
+    <h1>Luis Ramírez</h1>
+    <div class="dateline">
+      <span>Mechanical Engineering, New Jersey Institute of Technology</span>
+      <span>B.S. expected May 2027, GPA 3.24</span>
+    </div>
+  </header>
+
+  <main id="main">
+  <div class="lede">
+    <img class="portrait" src="images/luis-ramirez-headshot.webp" width="396" height="396" alt="Portrait of Luis Ramírez in a navy suit">
+    <div>
+      <p>I design in SolidWorks and Creo, run the simulations, and write up every result. The full reports are all here, so you can check the work yourself.</p>
+      <div class="actions">
+        <a class="btn solid" href="resume/luis-ramirez-resume.pdf">Download résumé</a>
+        <a class="btn" href="mailto:luisramirez092905@gmail.com">Email me</a>
+        <a class="btn" href="https://www.linkedin.com/in/luis-ramirez-njit">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="work" aria-labelledby="work-h">
+    <div class="sec-head">
+      <h2 id="work-h">Selected work</h2>
+      <p>Four projects I can walk you through start to finish.</p>
+    </div>
+
+    <div class="sheets">
+      <article class="sheet lead">
+        <div class="plate"><img src="images/housing-cover-drawing.webp" width="1383" height="902" alt="Completed SolidWorks detailed drawing of the 5-inch housing cover: top view, Section A-A, Section D-D, auxiliary View C-C, right side view, and shaded isometric, with title block"></div>
+        <div class="body">
+          <h3>5-inch housing cover, detailed drawing</h3>
+          <p>I took a supplied SolidWorks model and turned it into a drawing a machinist could build from. Six views on one sheet define the stepped bore, the bolt pattern, and the side lug with nothing left to guess.</p>
+          <ul>
+            <li>Top view, two full sections, an auxiliary view, a side view, and an isometric on one B-size sheet</li>
+            <li>8× Ø17/64 in mounting holes on a Ø4.750 in bolt circle</li>
+            <li>Dimensioned and toleranced per ASME Y14.5</li>
+          </ul>
+          <div class="links"><a href="reports/housing-cover-drawing.pdf">Read the report (PDF)</a></div>
+        </div>
+        <div class="tb">
+          <div><small>Tools</small><b>SolidWorks</b></div>
+          <div><small>Type</small><b>Drawing package</b></div>
+          <div><small>Scale</small><b>1:2</b></div>
+          <div><small>Drawn</small><b>Oct 2025</b></div>
+        </div>
+      </article>
+
+      <article class="sheet">
+        <div class="plate"><img src="images/jansen-mechanism.webp" width="270" height="310" alt="SolidWorks model of the four-leg Jansen walking mechanism with foot trace curves"></div>
+        <div class="body">
+          <h3>Four-leg Jansen walking mechanism</h3>
+          <p>A four-legged walker built on Theo Jansen's eight-bar leg linkage, all driven from one crank. I pulled the motion data to check the gait with numbers instead of eyeballing the animation.</p>
+          <ul>
+            <li>About 20 leg links, one degree of freedom, 60 RPM input</li>
+            <li>Paired legs run exactly out of phase for a stable gait</li>
+            <li>Out-of-plane motion stays at zero, so the mates are right</li>
+          </ul>
+          <div class="links"><a href="reports/jansen-mechanism-motion.pdf">Read the report (PDF)</a></div>
+        </div>
+        <div class="tb">
+          <div><small>Tools</small><b>SolidWorks Motion</b></div>
+          <div><small>Type</small><b>Kinematic simulation</b></div>
+          <div><small>Date</small><b>Fall 2025</b></div>
+        </div>
+      </article>
+
+      <article class="sheet">
+        <div class="plate"><img src="images/heatsink-thermal-plot.webp" width="900" height="524" alt="Temperature plot on the underside of the aluminum heatsink, hottest at the central CPU contact patch"></div>
+        <div class="body">
+          <h3>CPU heatsink thermal analysis</h3>
+          <p>A steady-state thermal study of a finned aluminum heatsink under a 50 W CPU load, to see where the heat goes and where a fan would help most.</p>
+          <ul>
+            <li>Peaks at 63.9 °C, below the 85–100 °C throttling range</li>
+            <li>Only 16.4 K difference across the whole part</li>
+            <li>Center fin channels run hottest, the best place to aim a fan</li>
+          </ul>
+          <div class="links"><a href="reports/heatsink-thermal-analysis.pdf">Read the report (PDF)</a></div>
+        </div>
+        <div class="tb">
+          <div><small>Tools</small><b>SolidWorks Simulation</b></div>
+          <div><small>Type</small><b>Thermal FEA</b></div>
+          <div><small>Date</small><b>Dec 2025</b></div>
+        </div>
+      </article>
+
+      <article class="sheet">
+        <div class="plate"><img src="images/gyroscopic-cup-holder-prototype.webp" width="478" height="640" alt="Blue and black 3D-printed PLA prototype of the gyroscopic cup holder"></div>
+        <div class="body">
+          <h3>Gyroscopic cup holder</h3>
+          <p>A self-leveling cup holder for bikes and wheelchairs. Two gimbal rings let gravity keep the drink upright as the mount tilts. Team project with Ghazi Mustafa. I modeled both rings.</p>
+          <ul>
+            <li>Printed and assembled in PLA for about $10</li>
+            <li>Printed fits came out too tight, so we revised the pin holes from 0.175 to 0.2 in</li>
+            <li>Design targets: cups 64–100 mm, under 1 kg total</li>
+          </ul>
+          <div class="links">
+            <a href="reports/gyroscopic-cup-holder.pdf">Report (PDF)</a>
+            <a href="https://www.thingiverse.com/thing:7208204">Thingiverse</a>
+            <a href="https://than.gs/m/1469641">Thangs</a>
+          </div>
+        </div>
+        <div class="tb">
+          <div><small>Tools</small><b>SolidWorks, 3D printing</b></div>
+          <div><small>Type</small><b>Concept to prototype</b></div>
+          <div><small>Date</small><b>Fall 2025</b></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="reports" aria-labelledby="reports-h">
+    <div class="sec-head">
+      <h2 id="reports-h">Hands-on work</h2>
+      <p>Lab work and projects from NJIT, most of it done as part of a team. Each one opens the full write-up, and I can walk you through any of them.</p>
+    </div>
+    <div class="index">
+      <div class="group">
+        <h3>Design and simulation</h3>
+        <div class="row"><strong>Mechanical drive pulley support</strong><span>Static FEA: peak 19,190 psi against a 34,994 psi yield, safety factor 1.82</span><a href="reports/pulley-support-fea.pdf">PDF</a></div>
+        <div class="row"><strong>Modular swing frame</strong><span>Trunnion-pivot table modeled from a reference drawing, with assembly drawing and BOM</span><a href="reports/swing-frame-assembly.pdf">PDF</a></div>
+        <div class="row"><strong>Roller chain and sprocket drive</strong><span>Creo bottom-up assembly, 20 parts, zero interferences</span><a href="reports/roller-chain-drive.pdf">PDF</a></div>
+      </div>
+      <div class="group">
+        <h3>Testing and strength of materials</h3>
+        <div class="row"><strong>Tensile testing</strong><span>Aluminum modulus measured at 69.9 GPa, 1.3% from reference</span><a href="reports/tensile-testing.pdf">PDF</a></div>
+        <div class="row"><strong>Torsion testing</strong><span>Steel shear modulus measured at 78.1 GPa, 2.4% from reference</span><a href="reports/torsion-testing.pdf">PDF</a></div>
+        <div class="row"><strong>Pure bending of a steel beam</strong><span>Deflection matched beam theory within 1.9% on average</span><a href="reports/pure-bending.pdf">PDF</a></div>
+        <div class="row"><strong>Strain rosettes and Mohr's circle</strong><span>Six rosettes compared against bending and shear theory</span><a href="reports/strain-rosettes.pdf">PDF</a></div>
+        <div class="row"><strong>Strain gauge bridges</strong><span>Quarter, half, and full Wheatstone bridges on an aluminum beam</span><a href="reports/strain-gauges.pdf">PDF</a></div>
+      </div>
+      <div class="group">
+        <h3>Instrumentation and controls</h3>
+        <div class="row"><strong>Rotational speed measurement</strong><span>75 tachometer readings: 995.9 rpm mean, 2.13 rpm standard deviation</span><a href="reports/rotational-speed.pdf">PDF</a></div>
+        <div class="row"><strong>RC filter signal conditioning</strong><span>Low-pass phase crossed −45° right at the 1.99 kHz cutoff</span><a href="reports/rc-filters.pdf">PDF</a></div>
+        <div class="row"><strong>Temperature sensors compared</strong><span>Thermocouple measured 40.4 µV/°C against the ~41 µV/°C standard</span><a href="reports/temperature-sensors.pdf">PDF</a></div>
+        <div class="row"><strong>Pipe flow and free jet</strong><span>Orifice discharge coefficient settled at 0.60–0.61</span><a href="reports/flow-measurement.pdf">PDF</a></div>
+        <div class="row"><strong>PLC electro-pneumatic control</strong><span>Ladder logic running a two-cylinder sequence with no operator input</span><a href="reports/plc-control.pdf">PDF</a></div>
+        <div class="row"><strong>PID liquid-level control</strong><span>How each PID term shapes a real tank's response</span><a href="reports/pid-level-control.pdf">PDF</a></div>
+        <div class="row"><strong>Acoustic measurement</strong><span>Decibel measurement and the anechoic chamber</span><a href="reports/acoustic-measurement.pdf">PDF</a></div>
+      </div>
+      <div class="group">
+        <h3>Manufacturing and materials</h3>
+        <div class="row"><strong>Measurement and GD&amp;T inspection</strong><span>Team lead. Inspected parts against drawing tolerances</span><a href="reports/measurement-gdt.pdf">PDF</a></div>
+        <div class="row"><strong>CNC milling and G-code</strong><span>Wrote and ran G-code for two parts, with cycle-time math</span><a href="reports/cnc-gcode.pdf">PDF</a></div>
+        <div class="row"><strong>Manual lathe machining</strong><span>Cutting force and heat measured across feeds and depths</span><a href="reports/lathe-machining.pdf">PDF</a></div>
+        <div class="row"><strong>Surface texture</strong><span>Vibratory finishing cut roughness by up to 43%</span><a href="reports/surface-texture.pdf">PDF</a></div>
+        <div class="row"><strong>Heat treatment of carbon steels</strong><span>High-carbon steel went from 19.1 to 61.0 HRC after a water quench</span><a href="reports/heat-treatment.pdf">PDF</a></div>
+        <div class="row"><strong>Metallographic microanalysis</strong><span>Identified six unknown alloys from their microstructures</span><a href="reports/metallography.pdf">PDF</a></div>
+        <div class="row"><strong>Steels and copper alloys research</strong><span>Property data compiled from the ASM Handbooks</span><a href="reports/materials-research.pdf">PDF</a></div>
+        <div class="row"><strong>Penicillin manufacturing case study</strong><span>How industrial fermenters make an antibiotic at scale</span><a href="reports/penicillin-case-study.pdf">PDF</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" aria-labelledby="exp-h">
+    <div class="two">
+      <div>
+        <h2 id="exp-h" class="sm">Experience</h2>
+        <article class="job">
+          <header><h3>Automotive Parts Specialist</h3><span class="when">Jul 2025 – present</span></header>
+          <div class="where">AutoZone, Newark, NJ</div>
+          <p>Test, install, and troubleshoot batteries, lighting, and other parts, using OBD-II scanners and vehicle specs to diagnose fitment and failures.</p>
+        </article>
+        <article class="job">
+          <header><h3>Field Engineering Technician</h3><span class="when">Aug 2021 – Apr 2023</span></header>
+          <div class="where">Pittenger Paving &amp; Excavating, Dunellen, NJ</div>
+          <p>Surveyed 20+ construction sites with laser levels to verify layout and tolerances, and ran skid-steers, rollers, and tampers on paving jobs.</p>
+        </article>
+        <article class="job">
+          <header><h3>EOP STEM Tutor</h3><span class="when">Jul 2024 – May 2025</span></header>
+          <div class="where">NJIT, Newark, NJ</div>
+          <p>200+ hours tutoring first-year students in calculus, physics, and engineering.</p>
+        </article>
+        <article class="job">
+          <header><h3>Active Brother, Alpha Phi Omega</h3><span class="when">Sep 2025 – present</span></header>
+          <div class="where">NJIT, Newark, NJ</div>
+          <p>Professional service fraternity. 60+ hours of community service so far.</p>
+        </article>
+      </div>
+      <div>
+        <h2 class="sm">What I work with</h2>
+        <ul class="skills">
+          <li>SolidWorks<small>Parts, assemblies, drawings, BOMs</small></li>
+          <li>SolidWorks Simulation and Motion<small>Static and thermal FEA, motion studies</small></li>
+          <li>Creo Parametric<small>Parametric parts and assemblies</small></li>
+          <li>MATLAB<small>Calculations and plotting</small></li>
+          <li>Engineering drawings<small>Multiview, section, and auxiliary views per ASME Y14.5</small></li>
+          <li>Microsoft Office<small>Word and Excel for reports and data</small></li>
+          <li>English and Spanish<small>Fluent in both</small></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact" aria-labelledby="contact-h">
+     <h2 id="contact-h">Let's talk</h2>
+    <p>If you're hiring for an internship or a full-time role, I'd like to hear about it.</p>
+    <a class="mail" href="mailto:luisramirez092905@gmail.com">luisramirez092905@gmail.com</a>
+    <div class="actions">
+      <a class="btn solid" href="resume/luis-ramirez-resume.pdf">Download résumé</a>
+      <a class="btn" href="reports/luis-ramirez-portfolio.pdf">Portfolio (PDF)</a>
+      <a class="btn" href="https://www.linkedin.com/in/luis-ramirez-njit">LinkedIn</a>
+    </div>
+  </section>
+  </main>
+
+  <footer>
+    <span>Luis Ramírez, New Jersey</span>
+    <span>Off the clock, I'm usually out looking for something good to eat.</span>
+  </footer>
+</div>
+</body>
+</html>
