@@ -50,7 +50,7 @@ a:hover{text-decoration-thickness:2px}
 
 /* hero body */
 .lede{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:calc(var(--u)*6);align-items:center;padding:calc(var(--u)*6) 0 calc(var(--u)*8)}
-.portrait{width:100%;max-width:300px;height:auto;aspect-ratio:1;object-fit:cover;border-radius:50%}
+.portrait{width:100%;max-width:320px;height:auto;aspect-ratio:4/5;object-fit:cover;border:1.5px solid var(--ink)}
 .lede p{font-size:clamp(1.3rem,2.4vw,1.85rem);line-height:1.4;margin:0 0 calc(var(--u)*3);max-width:34ch}
 .actions{display:flex;flex-wrap:wrap;gap:12px}
 .btn{font:500 .9375rem/1 var(--sans);text-decoration:none;border:1px solid var(--ink);padding:14px 18px;min-height:44px;display:inline-flex;align-items:center}
@@ -143,7 +143,7 @@ footer{border-top:3px double var(--ink);padding:calc(var(--u)*2.5) 0 calc(var(--
 @media (max-width:700px){
   .wrap{padding:0 calc(var(--u)*2)}
   .lede{grid-template-columns:1fr;gap:calc(var(--u)*3);padding:calc(var(--u)*4) 0 calc(var(--u)*6)}
-  .portrait{max-width:180px}
+  .portrait{max-width:260px;margin:0 auto}
   .sheets{grid-template-columns:1fr}
   .index{columns:1}
   .dateline{font-size:.8125rem;flex-direction:column;gap:4px;text-align:center}
@@ -183,7 +183,7 @@ footer{border-top:3px double var(--ink);padding:calc(var(--u)*2.5) 0 calc(var(--
 
   <main id="main">
   <div class="lede">
-    <img class="portrait" src="luis-ramirez-headshot.webp" width="396" height="396" alt="Portrait of Luis Ramírez in a navy suit">
+    <img class="portrait" src="luis-ramirez-shpe.webp" width="640" height="800" alt="Luis Ramírez at the SHPE convention career fair, giving a thumbs up next to a bear mascot">
     <div>
       <p>I design in SolidWorks and Creo, run the simulations, and write up every result. The full reports are all here, so you can check the work yourself.</p>
       <div class="actions">
