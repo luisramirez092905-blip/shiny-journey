@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Luis Ramírez, Mechanical Engineering</title>
-<meta name="description" content="Mechanical engineering student at NJIT, graduating May 2027. CAD, simulation, and engineering drawings, with the full reports behind every project.">
+<meta name="description" content="Mechanical engineering student at NJIT with a Psychology minor, in the BS/MS program. CAD, simulation, and engineering drawings, with the full reports behind every project.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -146,7 +146,8 @@ footer{border-top:3px double var(--ink);padding:calc(var(--u)*2.5) 0 calc(var(--
   .portrait{max-width:180px}
   .sheets{grid-template-columns:1fr}
   .index{columns:1}
-  .dateline{font-size:.8125rem}
+  .dateline{font-size:.8125rem;flex-direction:column;gap:4px;text-align:center}
+  .dateline span:last-child{text-align:center}
   .top .home{display:none}
   .top{padding:4px 0}
   .top nav{width:100%;justify-content:space-between;gap:8px;font-size:.8125rem}
@@ -174,8 +175,8 @@ footer{border-top:3px double var(--ink);padding:calc(var(--u)*2.5) 0 calc(var(--
   <header class="mast" id="top">
     <h1>Luis Ramírez</h1>
     <div class="dateline">
-      <span>Mechanical Engineering, New Jersey Institute of Technology</span>
-      <span>B.S. expected May 2027, GPA 3.24</span>
+      <span>Mechanical Engineering with a Psychology minor, New Jersey Institute of Technology</span>
+      <span>B.S./M.S. program, B.S. expected December 2027, GPA 3.24</span>
     </div>
   </header>
 
@@ -293,6 +294,15 @@ footer{border-top:3px double var(--ink);padding:calc(var(--u)*2.5) 0 calc(var(--
         <div class="row"><strong>Mechanical drive pulley support</strong><span>Static FEA: peak 19,190 psi against a 34,994 psi yield, safety factor 1.82</span><a href="pulley-support-fea.pdf">PDF</a></div>
         <div class="row"><strong>Modular swing frame</strong><span>Trunnion-pivot table modeled from a reference drawing, with assembly drawing and BOM</span><a href="swing-frame-assembly.pdf">PDF</a></div>
         <div class="row"><strong>Roller chain and sprocket drive</strong><span>Creo bottom-up assembly, 20 parts, zero interferences</span><a href="roller-chain-drive.pdf">PDF</a></div>
+        <div class="row"><strong>Machine vise drawing package</strong><span>Eight parametric parts and a 12-sheet drawing set with exploded BOM and assembly sections</span><a href="machine-vise-drawing-package.pdf">PDF</a></div>
+        <div class="row"><strong>Linkage, heat sink, and shaft analysis with validation</strong><span>Fin temperatures and shaft fillet stress each within about 5% of hand calculations</span><a href="design-analysis-validation.pdf">PDF</a></div>
+        <div class="row"><strong>Engineering decisions and optimization</strong><span>Linear program for a two-coal blend: 411,887 lb of steam per hour at the optimum</span><a href="decision-making-optimization.pdf">PDF</a></div>
+      </div>
+      <div class="group">
+        <h3>Pumps and turbines</h3>
+        <div class="row"><strong>Centrifugal pump testing</strong><span>Shut-off head of 28.2 m and 21% best efficiency at 3000 rpm</span><a href="centrifugal-pump-testing.pdf">PDF</a></div>
+        <div class="row"><strong>External gear pump testing</strong><span>2.38 cm³/rev displacement, slip under 2.5%, efficiency up to about 74%</span><a href="gear-pump-testing.pdf">PDF</a></div>
+        <div class="row"><strong>Pelton wheel turbine testing</strong><span>Peak efficiency 47–54% across three heads, 34.9 W maximum output</span><a href="pelton-wheel-testing.pdf">PDF</a></div>
       </div>
       <div class="group">
         <h3>Testing and strength of materials</h3>
