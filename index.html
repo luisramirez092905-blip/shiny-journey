@@ -148,6 +148,7 @@ footer{border-top:3px double var(--ink);padding:calc(var(--u)*2.5) 0 calc(var(--
   .index{columns:1}
   .dateline{font-size:.8125rem;flex-direction:column;gap:4px;text-align:center}
   .dateline span:last-child{text-align:center}
+  .tb{grid-template-columns:repeat(auto-fit,minmax(72px,1fr))}
   .top .home{display:none}
   .top{padding:4px 0}
   .top nav{width:100%;justify-content:space-between;gap:8px;font-size:.8125rem}
@@ -201,60 +202,60 @@ footer{border-top:3px double var(--ink);padding:calc(var(--u)*2.5) 0 calc(var(--
 
     <div class="sheets">
       <article class="sheet lead">
-        <div class="plate"><img src="housing-cover-drawing.webp" width="1383" height="902" alt="Completed SolidWorks detailed drawing of the 5-inch housing cover: top view, Section A-A, Section D-D, auxiliary View C-C, right side view, and shaded isometric, with title block"></div>
+        <div class="plate"><img src="machine-vise-drawing.webp" width="864" height="669" alt="Exploded assembly drawing of the bench machine vise with numbered balloons, bill of materials, and NJIT title block"></div>
         <div class="body">
-          <h3>5-inch housing cover, detailed drawing</h3>
-          <p>I took a supplied SolidWorks model and turned it into a drawing a machinist could build from. Six views on one sheet define the stepped bore, the bolt pattern, and the side lug with nothing left to guess.</p>
+          <h3>Machine vise, CAD and drawing package</h3>
+          <p>An eight-part bench vise modeled in SolidWorks and documented so a machinist could build and inspect every part from the sheets alone. Five-person team project. I helped produce the drawing set and checked teammates' sheets before submission.</p>
           <ul>
-            <li>Top view, two full sections, an auxiliary view, a side view, and an isometric on one B-size sheet</li>
-            <li>8× Ø17/64 in mounting holes on a Ø4.750 in bolt circle</li>
-            <li>Dimensioned and toleranced per ASME Y14.5</li>
+            <li>12 ANSI A sheets: 9 part drawings, an exploded assembly with BOM, and 2 assembly sections</li>
+            <li>Fully constrained parametric parts that regenerate from new dimensions without broken references</li>
+            <li>Section and detail views for the knurled jaw faces and the ACME 5/8"-8 lead screw</li>
           </ul>
-          <div class="links"><a href="housing-cover-drawing.pdf">Read the report (PDF)</a></div>
+          <div class="links"><a href="machine-vise-drawing-package.pdf">Read the report (PDF)</a></div>
         </div>
         <div class="tb">
           <div><small>Tools</small><b>SolidWorks</b></div>
           <div><small>Type</small><b>Drawing package</b></div>
-          <div><small>Scale</small><b>1:2</b></div>
-          <div><small>Drawn</small><b>Oct 2025</b></div>
+          <div><small>Sheets</small><b>12</b></div>
+          <div><small>Date</small><b>Fall 2026</b></div>
         </div>
       </article>
 
       <article class="sheet">
-        <div class="plate"><img src="jansen-mechanism.webp" width="270" height="310" alt="SolidWorks model of the four-leg Jansen walking mechanism with foot trace curves"></div>
+        <div class="plate"><img src="simulation-validation-plot.webp" width="872" height="524" alt="Coupler point path of the Watt I linkage from Creo overlaid on the MATLAB model"></div>
         <div class="body">
-          <h3>Four-leg Jansen walking mechanism</h3>
-          <p>A four-legged walker built on Theo Jansen's eight-bar leg linkage, all driven from one crank. I pulled the motion data to check the gait with numbers instead of eyeballing the animation.</p>
+          <h3>Simulations checked against hand calculations</h3>
+          <p>Three CAD analyses, each validated against an analytical model before trusting it: a six-link linkage, a finned heat sink, and a stepped steel shaft. Team project.</p>
           <ul>
-            <li>About 20 leg links, one degree of freedom, 60 RPM input</li>
-            <li>Paired legs run exactly out of phase for a stable gait</li>
-            <li>Out-of-plane motion stays at zero, so the mates are right</li>
+            <li>Linkage path traced in Creo matched a MATLAB displacement model</li>
+            <li>Fin temperatures within about 5% of the fin equation, from 228.7 °F at the base to about 97 °F at the tip</li>
+            <li>Shaft fillet shear stress of 866 psi, within 5% of the stress-concentration hand calculation</li>
           </ul>
-          <div class="links"><a href="jansen-mechanism-motion.pdf">Read the report (PDF)</a></div>
+          <div class="links"><a href="design-analysis-validation.pdf">Read the report (PDF)</a></div>
         </div>
         <div class="tb">
-          <div><small>Tools</small><b>SolidWorks Motion</b></div>
-          <div><small>Type</small><b>Kinematic simulation</b></div>
-          <div><small>Date</small><b>Fall 2025</b></div>
+          <div><small>Tools</small><b>Creo, SolidWorks Simulation, MATLAB</b></div>
+          <div><small>Type</small><b>Validated FEA</b></div>
+          <div><small>Date</small><b>Fall 2026</b></div>
         </div>
       </article>
 
       <article class="sheet">
-        <div class="plate"><img src="heatsink-thermal-plot.webp" width="900" height="524" alt="Temperature plot on the underside of the aluminum heatsink, hottest at the central CPU contact patch"></div>
+        <div class="plate"><img src="gear-pump-efficiency.webp" width="1100" height="458" alt="Overall and volumetric efficiency of the gear pump plotted against pump head at 800, 1200, and 1600 rpm"></div>
         <div class="body">
-          <h3>CPU heatsink thermal analysis</h3>
-          <p>A steady-state thermal study of a finned aluminum heatsink under a 50 W CPU load, to see where the heat goes and where a fan would help most.</p>
+          <h3>External gear pump performance testing</h3>
+          <p>A lab test of a gear pump pumping hydraulic oil at 800, 1200, and 1600 rpm, closing the delivery valve in steps up to about 95 bar. Group lab with four teammates.</p>
           <ul>
-            <li>Peaks at 63.9 °C, below the 85–100 °C throttling range</li>
-            <li>Only 16.4 K difference across the whole part</li>
-            <li>Center fin channels run hottest, the best place to aim a fan</li>
+            <li>Displacement of about 2.38 cm³ per revolution, found by extrapolating to zero head</li>
+            <li>Leakage (slip) never above 2.5% of the flow</li>
+            <li>Overall efficiency rose with pressure to about 74%</li>
           </ul>
-          <div class="links"><a href="heatsink-thermal-analysis.pdf">Read the report (PDF)</a></div>
+          <div class="links"><a href="gear-pump-testing.pdf">Read the report (PDF)</a></div>
         </div>
         <div class="tb">
-          <div><small>Tools</small><b>SolidWorks Simulation</b></div>
-          <div><small>Type</small><b>Thermal FEA</b></div>
-          <div><small>Date</small><b>Dec 2025</b></div>
+          <div><small>Equipment</small><b>GUNT HM 365 rig</b></div>
+          <div><small>Type</small><b>Performance testing</b></div>
+          <div><small>Date</small><b>Fall 2026</b></div>
         </div>
       </article>
 
@@ -294,14 +295,14 @@ footer{border-top:3px double var(--ink);padding:calc(var(--u)*2.5) 0 calc(var(--
         <div class="row"><strong>Mechanical drive pulley support</strong><span>Static FEA: peak 19,190 psi against a 34,994 psi yield, safety factor 1.82</span><a href="pulley-support-fea.pdf">PDF</a></div>
         <div class="row"><strong>Modular swing frame</strong><span>Trunnion-pivot table modeled from a reference drawing, with assembly drawing and BOM</span><a href="swing-frame-assembly.pdf">PDF</a></div>
         <div class="row"><strong>Roller chain and sprocket drive</strong><span>Creo bottom-up assembly, 20 parts, zero interferences</span><a href="roller-chain-drive.pdf">PDF</a></div>
-        <div class="row"><strong>Machine vise drawing package</strong><span>Eight parametric parts and a 12-sheet drawing set with exploded BOM and assembly sections</span><a href="machine-vise-drawing-package.pdf">PDF</a></div>
-        <div class="row"><strong>Linkage, heat sink, and shaft analysis with validation</strong><span>Fin temperatures and shaft fillet stress each within about 5% of hand calculations</span><a href="design-analysis-validation.pdf">PDF</a></div>
+        <div class="row"><strong>5-inch housing cover, detailed drawing</strong><span>Six views on one B-size sheet per ASME Y14.5, 8 holes on a Ø4.750 in bolt circle</span><a href="housing-cover-drawing.pdf">PDF</a></div>
+        <div class="row"><strong>Four-leg Jansen walking mechanism</strong><span>SolidWorks Motion study at 60 RPM; paired legs run exactly out of phase</span><a href="jansen-mechanism-motion.pdf">PDF</a></div>
+        <div class="row"><strong>CPU heatsink thermal analysis</strong><span>Thermal FEA under a 50 W load: peak 63.9 °C, below the throttling range</span><a href="heatsink-thermal-analysis.pdf">PDF</a></div>
         <div class="row"><strong>Engineering decisions and optimization</strong><span>Linear program for a two-coal blend: 411,887 lb of steam per hour at the optimum</span><a href="decision-making-optimization.pdf">PDF</a></div>
       </div>
       <div class="group">
         <h3>Pumps and turbines</h3>
         <div class="row"><strong>Centrifugal pump testing</strong><span>Shut-off head of 28.2 m and 21% best efficiency at 3000 rpm</span><a href="centrifugal-pump-testing.pdf">PDF</a></div>
-        <div class="row"><strong>External gear pump testing</strong><span>2.38 cm³/rev displacement, slip under 2.5%, efficiency up to about 74%</span><a href="gear-pump-testing.pdf">PDF</a></div>
         <div class="row"><strong>Pelton wheel turbine testing</strong><span>Peak efficiency 47–54% across three heads, 34.9 W maximum output</span><a href="pelton-wheel-testing.pdf">PDF</a></div>
       </div>
       <div class="group">
